@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="shortcut icon" href="https://img.icons8.com/fluency/48/cute-pumpkin.png" type="image/x-icon">
+    <title>AI Tech</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --var-color-bg: #3044c4;
+            --var-color-fg: #ffffffd8;
+        }
+
+        .top-section {
+            background-color: var(--var-color-bg);
+            color: var(--var-color-fg);
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        header {
+            width: 100%;
+            color: var(--var-color-fg);
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        header>h1 {
+            font-size: 2rem;
+        }
+
+        .navigation>ul {
+            font-size: 1rem;
+            list-style-type: none;
+            display: flex;
+            margin-top: 1rem;
+            gap: 2.5rem;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        .navigation>ul>li>a {
+            text-decoration: none;
+            color: var(--var-color-fg);
+        }
+
+        .navigation>ul>li:first-child a {
+            color: #fff;
+        }
+
+        .navigation>ul>li>a:hover {
+            color: #fff;
+        }
+
+        .content-main {
+            height: 90vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding-top: 5rem;
+            padding-left: 3rem;
+        }
+
+        .left-side>.btn-logo {
+            background-color: blue;
+            color: var(--var-color-fg);
+            border: 1px solid var(--var-color-fg);
+            font-size: 20px;
+            padding: 10px;
+            border-radius: 25px;
+            margin: 0 50px;
+            transition: 0.5s ease;
+            cursor: pointer;
+        }
+
+        .left-side>.btn-logo:hover {
+            background-color: var(--var-color-bg);
+        }
+
+        .left-side>h1 {
+            font-size: 4rem;
+            margin: 20px 50px;
+        }
+
+        .left-side>p {
+            font-size: 18px;
+            margin: 20px 50px;
+        }
+        .left-side>.btn-read {
+            color: var(#333);
+            background-color: var(--var-color-fg);
+            font-size: 18px;
+            padding: 15px 30px;
+            border: 2px solid var(--var-color-bg);
+            border-radius: 25px;
+            margin: 20px 50px;
+            cursor: pointer;
+            margin-bottom: 0;
+        }
+
+        .left-side>.btn-contact {
+            color: var(--var-color-fg);
+            background-color: var(--var-color-bg);
+            font-size: 18px;
+            padding: 15px 30px;
+            border: 2px solid var(--var-color-fg);
+            border-radius: 25px;
+            transition: 0.5s ease;
+            cursor: pointer;
+        }
+
+        .left-side>.btn-contact:hover {
+            background-color: var(--var-color-fg);
+            color: #333;
+        }
+
+        .right-side>img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .mid-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding: 50px 50px 0px 50px;
+            gap: 1rem;
+            margin-bottom: 50px;
+        }
+
+        .left-side>img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .right-side {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .right-side>.about {
+            margin: 20px 0;
+            padding: 10px 20px;
+            font-size: 14px;
+            background-color: var(--var-color-fg);
+            color: blue;
+            cursor: pointer;
+            border: 2px solid rgba(128, 128, 128, 0.2);
+            border-radius: 25px;
+        }
+
+        .right-side>h1 {
+            font-size: 3rem;
+            margin-bottom: 30px;
+        }
+
+        .right-side>p {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .list-items-col {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 2.5rem;
+            justify-content: center;
+            align-items: center;
+            margin-top: 2rem;
+        }
+
+        .read-more {
+            color: var(--var-color-fg);
+            background-color: blue;
+            font-size: 16px;
+            padding: 10px 15px;
+            border: 2px solid var(--var-color-fg);
+            border-radius: 25px;
+            cursor: pointer;
+            transition: 0.5s ease;
+        }
+
+        .read-more:hover {
+            background-color: var(--var-color-bg);
+        }
+
+        .me-3 {
+            border: 1px solid var(--var-color-bg);
+            color: var(--var-color-bg);
+            border-radius: 50%;
+            padding: 1rem;
+            transition: 0.5s ease;
+        }
+
+        .me-3:hover {
+            color: var(--var-color-fg);
+            background-color: var(--var-color-bg);
+        }
+
+        .bottom-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            padding: 5rem;
+        }
+
+        .bottom-section>.right-bottom {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .our-services {
+            margin: 20px 0;
+            padding: 10px 20px;
+            font-size: 14px;
+            background-color: var(--var-color-fg);
+            color: blue;
+            cursor: pointer;
+            border: 2px solid rgba(128, 128, 128, 0.2);
+            border-radius: 25px;
+        }
+
+        .bottom-section>.right-bottom>h1 {
+            font-size: 3.5rem;
+            padding: 1rem 0 1rem 0;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .bottom-section>.right-bottom>p {
+            font-size: 18px;
+            padding: 1rem 0 1rem 0;
+            margin-bottom: 1rem;
+        }
+
+        .bottom-section>.left-bottom {
+            height: 100vh;
+            display: flex;
+            flex-wrap: wrap;
+            column-gap: 2%;
+            row-gap: 2%;
+        }
+
+        .bottom-section>.left-bottom>div {
+            width: 48%;
+            height: 48%;
+            background-color: var(--var-color-fg);
+            color: var(--var-color-bg);
+            transition: 1s ease;
+            border-radius: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .bottom-section>.left-bottom>div:hover {
+            background-color: var(--var-color-bg);
+            color: var(--var-color-fg);
+        }
+
+        .container>h1 {
+            margin: 20px;
+            transition: 1s ease;
+            color: black;
+        }
+
+        .container:hover>h1 {
+            color: var(--var-color-fg);
+        }
+
+        .container>p {
+            margin: 20px;
+            transition: 1s ease;
+            color: black;
+        }
+
+        .container:hover>p {
+            color: var(--var-color-fg);
+        }
+
+        footer {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-top: 20px;
+            color: var(--var-color-fg);
+            background-color: var(--var-color-bg);
+            font-size: 22px;
+        }
+
+        footer ul {
+            list-style-type: none;
+        }
+
+        footer a {
+            text-decoration: none;
+            color: var(--var-color-fg);
+        }
+    </style>
+</head>
+
+<body>
+    <section class="top-section">
+        <header>
+            <h1 class="logo">AI Tech</h1>
+            <nav class="navigation">
+                <ul>
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./index.html">About</a></li>
+                    <li><a href="./index.html">Services</a></li>
+                    <li><a href="./index.html">Projects</a></li>
+                    <li><a href="./index.html">Contacts</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="content-main">
+            <div class="left-side">
+                <button class="btn-logo">AI Tech</button>
+                <h1>Artificial Intelligence for Your Business</h1>
+                <p>Tempor rebum no at dolore lorem clita rebum rebum ipsum rebum stet dolor sed justo kasd. Ut dolor sed
+                    magna dolor sea diam. Sit diam sit</p>
+                <button class="btn-read">Read More</button>
+                <button class="btn-contact">Contact Us</button>
+            </div>
+            <div class="right-side">
+                <img src="hero-img.png" alt="Logo">
+            </div>
+        </div>
+    </section>
+
+    <section class="mid-section">
+        <div class="left-side"><img src="about-img.jpg" alt="About"></div>
+        <div class="right-side">
+            <button class="about">About Us</button>
+            <h1>We Make Your Business Smarter with Artificial Intelligence</h1>
+            <p>Tempor erat elitr rebum at clita. Diam dolor diam ipsum et tempor sit. Aliqu diam amet diam et eos
+                labore. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus clita duo justo et
+                tempor eirmod magna dolore erat amet</p>
+            <p>Aliqu diam amet diam et eos labore. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit.
+                Sanctus clita duo justo et tempor.</p>
+            <br>
+            <div class="list">
+                <div class="list-items-col">
+                    <i class="fa fa-check text-primary me-2"></i>&nbsp;&nbsp;<span class="tick"></span>Award Winning
+                    <br><br>
+                    <i class="fa fa-check text-primary me-2"></i>&nbsp;&nbsp;<span class="tick"></span>Professional
+                    Staff
+                </div>
+                <div class="list-items-col">
+                    <i class="fa fa-check text-primary me-2"></i>&nbsp;&nbsp;<span class="tick"></span>24/7 Support
+                    <br><br>
+                    <i class="fa fa-check text-primary me-2"></i>&nbsp;&nbsp;<span class="tick"></span>Fair Prices
+                </div>
+            </div>
+            <div class="btn-group">
+                <button class="read-more">Read More</button>
+                <a class="btn btn-outline-primary btn-square me-3" href=""><i class="fab fa-facebook-f"></i></a>
+                <a class="btn btn-outline-primary btn-square me-3" href=""><i class="fab fa-twitter"></i></a>
+                <a class="btn btn-outline-primary btn-square me-3" href=""><i class="fab fa-instagram"></i></a>
+                <a class="btn btn-outline-primary btn-square me-3" href=""><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </section>
+    <section class="bottom-section">
+        <div class="right-bottom">
+            <button class="our-services">Our Services</button>
+            <h1>Our Excellent AI Solutions for Your Business</h1>
+            <p>Tempor erat elitr rebum at clita. Diam dolor diam ipsum et tempor sit. Aliqu diam amet diam et eos
+                labore. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus clita duo justo et
+                tempor eirmod magna dolore erat amet</p>
+            <button class="read-more">Read More</button>
+        </div>
+        <div class="left-bottom">
+            <div class="container">
+                <div class="imgs">
+                    <i class="fa fa-robot fa-2x"></i>
+                </div>
+                <h1>Robotic Automation</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum natus culpa odio est. Eius quae magni
+                    eligendi deserunt ad molestiae?</p>
+            </div>
+            <div class="container">
+                <div class="imgs">
+                    <i class="fa fa-graduation-cap fa-2x"></i>
+                </div>
+                <h1>Education & Science</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum natus culpa odio est. Eius quae magni
+                    eligendi deserunt ad molestiae?</p>
+            </div>
+            <div class="container">
+                <div class="imgs">
+                    <i class="fa fa-power-off fa-2x"></i>
+                </div>
+                <h1>Machine learning</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum natus culpa odio est. Eius quae magni
+                    eligendi deserunt ad molestiae?</p>
+            </div>
+            <div class="container">
+                <div class="imgs">
+                    <i class="fa fa-brain fa-2x"></i>
+                </div>
+                <h1>Predictive Analysis</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum natus culpa odio est. Eius quae magni
+                    eligendi deserunt ad molestiae?</p>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <ul>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./index.html">About</a></li>
+            <li><a href="./index.html">Services</a></li>
+            <li><a href="./index.html">Projects</a></li>
+            <li><a href="./index.html">Contacts</a></li>
+        </ul>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14431.817821069468!2d83.00030795!3d25.2721175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398e3191affacc65%3A0xc203d893cfb8d224!2sBHU%20Trauma%20Centre!5e0!3m2!1sen!2sin!4v1697021739556!5m2!1sen!2sin" width="400" height="200" style="border:0; margin: 20px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </footer>
+</body>
+
+</html>
